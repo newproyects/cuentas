@@ -1,5 +1,5 @@
 a: main.o
-	g++ main.o -L/usr/local/lib -lmysqlclient
+	g++ main.o -o a -L/usr/local/lib -lmysqlclient
 	rm *.o
 
 main.o: main.cpp
