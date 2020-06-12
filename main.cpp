@@ -13,11 +13,13 @@ int main(){
   cin.getline(data[1],8,'\n');
   
 
-  insert(c,data);
-  cout << c << endl;
+  if(mc.queryd(c,data)) mc.fail();
 
-  cout << mc.query(c) << endl;
-  //if(!mc.query(c))cout << "ingreso exitoso\n";
+  MYSQL_RES *result = mysql_store_result(mc.con);
+  MYSQL_ROW row = mysql_fetch_row(result);
+
+  if(row==0) cout << "error al ingresar\n";
+  else cout << "id: " << row[0] << endl;
   
   mc.close();
   return 0;

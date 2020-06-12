@@ -26,7 +26,6 @@ bool MyCon::query(char c[]){
 
 bool MyCon::queryd(char c[],char d[][20]){
   insert(c,d);
-  cout << c << endl;
   if(v=mysql_query(con,c)) error();
   return v;
 }
