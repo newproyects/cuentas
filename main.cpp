@@ -2,7 +2,7 @@
 #include "mycon.h"
 
 int main(){
-  char c[]="insert into user(name,pswd) values('%','%')";
+  char c[]="select id from user where name='%' and pswd='%'";
   char data[10][20];
   MyCon mc("localhost","root","tabladelfin","counts");
 
@@ -15,9 +15,10 @@ int main(){
 
   insert(c,data);
   cout << c << endl;
+
+  cout << mc.query(c) << endl;
+  //if(!mc.query(c))cout << "ingreso exitoso\n";
   
-  if(!mc.query(c))cout << "ingreso exitoso\n";
-  
-   mc.close();
+  mc.close();
   return 0;
 }
