@@ -24,23 +24,9 @@ bool MyCon::query(char c[]){
   return v;
 }
 
-bool MyCon::queryd(char c[],char d[]){
-  char *q=new char[strlen(c)+sizeof(d)-sizeof(int)];
-  sprintf(q,c,d);
-  if(v=mysql_query(con,q)) error();
-  return v;
-}
-
-bool MyCon::query2d(char c[],char d1[],char d2[]){
-  char *q=new char[strlen(c)+sizeof(d1)+sizeof(d2)-sizeof(int)];
-  sprintf(q,c,d1,d2);
-  if(v=mysql_query(con,q)) error();
-  return v;
-}
-
-bool MyCon::query3d(char c[],char d1[],char d2[],char d3[]){
-  char *q=new char[strlen(c)+sizeof(d1)+sizeof(d2)+sizeof(d3)-sizeof(int)];
-  sprintf(q,c,d1,d2,d3);
-  if(v=mysql_query(con,q)) error();
+bool MyCon::queryd(char c[],char d[][20]){
+  insert(c,d);
+  cout << c << endl;
+  if(v=mysql_query(con,c)) error();
   return v;
 }
