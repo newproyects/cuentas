@@ -6,13 +6,16 @@
 using namespace std;
 
 class MyCon{
-public:
+private:
   MYSQL *con;
+  MYSQL_ROW row;
   bool v;
+public:
   MyCon(char ho[],char us[],char pw[],char db[]);
   void close();
   void error();
   void fail();
   bool query(char c[]);
   bool queryd(char c[],char d[][20]);
+  char* outpoint(); 
 };

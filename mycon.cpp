@@ -29,3 +29,9 @@ bool MyCon::queryd(char c[],char d[][20]){
   if(v=mysql_query(con,c)) error();
   return v;
 }
+
+char* MyCon::outpoint(){
+  row = mysql_fetch_row(mysql_store_result(con));
+  if(row==0) return "";
+  else return row[0];
+}
