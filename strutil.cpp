@@ -4,12 +4,33 @@ Table::Table(int _y,int _x){
   x=_x;
   y=_y;
   t=new char*[y];
-  for(int i=0;i<y;i++) t[i]=new char[x];
+  for(int i=0;i<y;i++){
+    t[i]=new char[x];
+    strcpy(t[i],"");
+  }
 }
 
 Table::~Table(){
   for(int i=0;i<y;i++) delete[] t[i];
   delete[] t;
+}
+
+void Table::cln(){
+  t=new char*[y];
+  for(int i=0;i<y;i++){
+    t[i]=new char[x];
+    strcpy(t[i],"");
+  }
+}
+
+void Table::reset(int _y,int _x){
+  x=_x;
+  y=_y;
+  t=new char*[y];
+  for(int i=0;i<y;i++){
+    t[i]=new char[x];
+    strcpy(t[i],"");
+  }
 }
 
 void insert(char q[],char c[][20]){
