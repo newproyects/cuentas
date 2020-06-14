@@ -24,8 +24,9 @@ bool MyCon::query(char c[]){
   return v;
 }
 
-bool MyCon::queryd(char c[],char **d){
-  insert(c,d);
+bool MyCon::queryd(char c[],Table &d){
+  d.ins(c);
+  cout << c << endl;
   if(v=mysql_query(con,c)) error();
   return v;
 }

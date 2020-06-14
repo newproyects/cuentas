@@ -32,8 +32,7 @@ void Table::reset(int _y,int _x){
   }
 }
 
-
-void insert(char q[],char **c){
+void Table::ins(char q[]){
   int n=strlen(q);
   char x[200][500];
   int j=0;
@@ -43,7 +42,7 @@ void insert(char q[],char **c){
   for(int i=0;i<n;i++){
     if(q[i]!='%')x[j][k++]=q[i];
     else{
-      strcpy(x[++j],c[l++]);
+      strcpy(x[++j],t[l++]);
       j++;
       k=0;
     }

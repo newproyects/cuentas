@@ -13,8 +13,8 @@ int main(){
   cout << "ingresar contraseña: ";
   cin.getline(data.t[1],8,'\n');
   
-
-  if(mc.queryd(c,data.t)) mc.fail();
+  
+  if(mc.queryd(c,data)) mc.fail();
 
   strcpy(result,mc.outpoint());
 
