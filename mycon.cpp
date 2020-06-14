@@ -35,3 +35,17 @@ char* MyCon::outpoint(){
   if(row==0) return "";
   else return row[0];
 }
+
+char** MyCon::outtable(){
+  int j=0;
+  char **o;
+  res=mysql_store_result(con);
+  int n = mysql_num_fields(res);
+  int num_rows = mysql_affected_rows(con);
+  cout << num_rows << endl;
+  row=mysql_fetch_row(res);
+  if(row!=0)do{
+      for(int i=0;i<n;i++) cout << row[i] << " ";
+      cout << endl;
+    }while(row=mysql_fetch_row(res));
+}
