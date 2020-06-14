@@ -26,17 +26,18 @@ bool MyCon::query(char c[]){
 
 bool MyCon::queryd(char c[],Table &d){
   d.ins(c);
-  cout << c << endl;
   if(v=mysql_query(con,c)) error();
   return v;
 }
 
-char* MyCon::outpoint(){
+bool MyCon::outpoint(char q[]){
   res=mysql_store_result(con);
-  if(res==NULL)return "";
+  if(res==NULL)return 1;
   row = mysql_fetch_row(res);
-  if(row==0) return "";
-  return row[0];
+  strcpy(q,"");
+  if(row==0) return 0;
+  strcpy(q,row[0]);
+  return 0;
 }
 
 bool MyCon::outtable(Table &o){

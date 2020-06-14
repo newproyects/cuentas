@@ -16,7 +16,7 @@ int main(){
   
   if(mc.queryd(c,data)) mc.fail();
 
-  strcpy(result,mc.outpoint());
+  mc.outpoint(result);
 
   cout << "id: " << (strcmp(result,"")==0 ? "error de acceso" : result) << endl;
 
