@@ -16,7 +16,6 @@ Table::~Table(){
 }
 
 void Table::cln(){
-  t=new char*[y];
   for(int i=0;i<y;i++){
     t[i]=new char[x];
     strcpy(t[i],"");
@@ -33,15 +32,17 @@ void Table::reset(int _y,int _x){
   }
 }
 
-void insert(char q[],char c[][20]){
-  char x[200][strlen(q)];
+void insert(char q[],char **c){
+  int n=strlen(q);
+  char x[200][500];
   int j=0;
   int k=0;
-  int cc=0;
-  for(int i=0;i<strlen(q);i++){
+  int l=0;
+
+  for(int i=0;i<n;i++){
     if(q[i]!='%')x[j][k++]=q[i];
     else{
-      strcpy(x[++j],c[cc++]);
+      strcpy(x[++j],c[l++]);
       j++;
       k=0;
     }

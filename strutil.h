@@ -13,5 +13,4 @@ public:
   void reset(int _y,int _x);
 };
 
-void insert(char q[],char c[][20]);
-
+void insert(char q[],char **c);

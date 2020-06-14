@@ -16,6 +16,6 @@ public:
   void error();
   void fail();
   bool query(char c[]);
-  bool queryd(char c[],char d[][20]);
+  bool queryd(char c[],char **d);
   char* outpoint(); 
 };

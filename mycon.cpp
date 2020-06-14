@@ -24,7 +24,7 @@ bool MyCon::query(char c[]){
   return v;
 }
 
-bool MyCon::queryd(char c[],char d[][20]){
+bool MyCon::queryd(char c[],char **d){
   insert(c,d);
   if(v=mysql_query(con,c)) error();
   return v;

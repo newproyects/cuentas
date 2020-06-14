@@ -3,18 +3,18 @@
 
 int main(){
   char c[]="select id from user where name='%' and pswd='%'";
-  char data[10][20];
+  Table data(10,40);
   MyCon mc("localhost","root","tabladelfin","counts");
   char result[10];
 
   cout << "ingresar nombre: ";
-  cin.getline(data[0],10,'\n');
+  cin.getline(data.t[0],10,'\n');
   fflush(stdin);
   cout << "ingresar contraseña: ";
-  cin.getline(data[1],8,'\n');
+  cin.getline(data.t[1],8,'\n');
   
 
-  if(mc.queryd(c,data)) mc.fail();
+  if(mc.queryd(c,data.t)) mc.fail();
 
   strcpy(result,mc.outpoint());
 
