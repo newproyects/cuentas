@@ -2,10 +2,8 @@
 #include <stdlib.h>
 
 class Table{
-private:
-  int x,y;
-  
 public:
+  int x,y;
   char **t;
   Table(int _y,int _x);
   ~Table();

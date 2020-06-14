@@ -20,5 +20,5 @@ class MyCon{
   bool query(char c[]);
   bool queryd(char c[],char **d);
   char* outpoint();
-  char** outtable();
+  bool outtable(Table &o);
 };

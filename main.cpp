@@ -23,7 +23,8 @@ int main(){
   if(strcmp(result,"")!=0){
     cout << "tabla de usuarios\n";
     mc.query("select * from user");
-    mc.outtable();
+    mc.outtable(data);
+    for(int i=0;i<data.y;i++) cout << data.t[i] << endl;
   }
   
   mc.close();

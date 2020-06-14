@@ -31,21 +31,31 @@ bool MyCon::queryd(char c[],char **d){
 }
 
 char* MyCon::outpoint(){
-  row = mysql_fetch_row(mysql_store_result(con));
+  res=mysql_store_result(con);
+  if(res==NULL)return "";
+  row = mysql_fetch_row(res);
   if(row==0) return "";
-  else return row[0];
+  return row[0];
 }
 
-char** MyCon::outtable(){
+bool MyCon::outtable(Table &o){
   int j=0;
-  char **o;
   res=mysql_store_result(con);
-  int n = mysql_num_fields(res);
-  int num_rows = mysql_affected_rows(con);
-  cout << num_rows << endl;
+  
+  if(res==NULL) return 1;
+  
   row=mysql_fetch_row(res);
-  if(row!=0)do{
-      for(int i=0;i<n;i++) cout << row[i] << " ";
-      cout << endl;
-    }while(row=mysql_fetch_row(res));
+  int n = mysql_num_fields(res);
+  int m = mysql_affected_rows(con);
+  o.reset(m,200);
+  if(row==0) return 0;
+  do{
+    for(int i=0;i<n;i++){
+      strcat(o.t[j],row[i]);
+      strcat(o.t[j]," ");
+    }
+    j++;
+  }while(row=mysql_fetch_row(res));
+  
+  return 0;
 }

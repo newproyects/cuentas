@@ -32,6 +32,7 @@ void Table::reset(int _y,int _x){
   }
 }
 
+
 void insert(char q[],char **c){
   int n=strlen(q);
   char x[200][500];
