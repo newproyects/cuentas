@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.19, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.20, for Linux (x86_64)
 --
 -- Host: localhost    Database: counts
 -- ------------------------------------------------------
--- Server version	8.0.19
+-- Server version	8.0.20
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,36 +16,55 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `counts`
+-- Table structure for table `arch`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `counts` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-
-USE `counts`;
-
---
--- Table structure for table `users`
---
-
-DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `arch`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users` (
+CREATE TABLE `arch` (
+  `id_arch` int NOT NULL AUTO_INCREMENT,
+  `id_user` int NOT NULL,
+  `name_arch` varchar(40) NOT NULL,
+  `data` mediumblob NOT NULL,
+  PRIMARY KEY (`id_arch`),
+  KEY `id_user` (`id_user`),
+  CONSTRAINT `arch_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `arch`
+--
+
+LOCK TABLES `arch` WRITE;
+/*!40000 ALTER TABLE `arch` DISABLE KEYS */;
+/*!40000 ALTER TABLE `arch` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(10) NOT NULL,
   `pswd` varchar(8) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=121 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=166 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `user`
 --
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (113,'angel',''),(114,'roberto','tuca'),(115,'tito','camotit'),(116,'julio','borbon'),(117,'jeje','koko'),(118,'smn','ese'),(119,'piyelito','iwiw'),(120,'piyelito','kdkdkd');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (148,'angel','pollo'),(149,'lugo','sks'),(150,'ksks','lwlw'),(151,'benito','camela'),(153,'lola','lssl'),(155,'kosko','koekozd'),(161,'kaksos','skaks'),(162,'tito','camotit'),(163,'jorge','curioso'),(164,'rumeno','gurrume'),(165,'tiko','riko');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -57,4 +76,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-20 11:34:07
+-- Dump completed on 2020-06-16 17:15:36
