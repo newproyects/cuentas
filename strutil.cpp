@@ -44,6 +44,7 @@ void Table::ins(char q[]){
     else{
       strcpy(x[++j],t[l++]);
       j++;
+      i++;
       k=0;
     }
   }

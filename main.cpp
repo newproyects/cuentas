@@ -2,7 +2,7 @@
 #include "mycon.h"
 
 int main(){
-  char c[]="select id from user where name='%' and pswd='%'";
+  char c[]="select id from user where name='%s' and pswd='%s'";
   Table data(10,40);
   MyCon mc("localhost","root","tabladelfin","counts");
   char result[10];
@@ -33,7 +33,7 @@ int main(){
     f=fopen(data.t[2],"rb");
     if(f==NULL) cout << "Archivo inexistente" << endl;
     else{
-      cout << "Archivo existente" << endl;
+      cout << "Arcbriendo ahivo..." << endl;
       fseek(f,0,SEEK_END);
       int fl=ftell(f);
       char d[fl+1];
