@@ -34,7 +34,14 @@ int main(){
     if(f==NULL) cout << "Archivo inexistente" << endl;
     else{
       cout << "Archivo existente" << endl;
+      fseek(f,0,SEEK_END);
+      int fl=ftell(f);
+      char d[fl+1];
+      fseek(f,0,SEEK_SET);
+      fread(d,1,fl,f);
       fclose(f);
+      for(int i=0;i<fl;i++) cout << d[i];
+      cout << endl;
     }
   }
   
