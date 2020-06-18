@@ -52,3 +52,8 @@ void Table::ins(char q[]){
   for(int i=1;i<=j;i++)strcat(x[0],x[i]);
   strcpy(q,x[0]);
 }
+
+void Table::equal(int i,char q[]){
+  delete[] t[i];
+  t[i]=q;
+}
