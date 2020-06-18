@@ -1,5 +1,6 @@
 #include <string.h>
 #include <stdlib.h>
+#include <cstdio>
 
 class Table{
 public:
@@ -10,5 +11,6 @@ public:
   void cln();
   void reset(int _y,int _x);
   void ins(char *q);
+  char* insd(char *q);
   void equal(int i,char *q);
 };

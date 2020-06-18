@@ -33,15 +33,20 @@ int main(){
     f=fopen(data.t[2],"rb");
     if(f==NULL) cout << "Archivo inexistente" << endl;
     else{
-      cout << "Arcbriendo ahivo..." << endl;
+      cout << "Arcbriendo archivo..." << endl;
       fseek(f,0,SEEK_END);
       int fl=ftell(f);
-      char d[fl+1];
+      Table d(3,fl+1);
       fseek(f,0,SEEK_SET);
-      fread(d,1,fl,f);
+      fread(d.t[2],1,fl,f);
       fclose(f);
-      for(int i=0;i<fl;i++) cout << d[i];
-      cout << endl;      
+
+      strcpy(d.t[0],result);
+      strcpy(d.t[1],data.t[2]);
+
+      char *q="insert into arch(id_user,name,data) values('%s','%s','%s')";
+      q=d.insd(q);
+      cout << q << endl;
     }
   }
   
