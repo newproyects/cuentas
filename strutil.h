@@ -9,6 +9,6 @@ public:
   ~Table();
   void cln();
   void reset(int _y,int _x);
-  void ins(char q[]);
-  void equal(int i,char q[]);
+  void ins(char *q);
+  void equal(int i,char *q);
 };

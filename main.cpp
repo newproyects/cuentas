@@ -41,7 +41,7 @@ int main(){
       fread(d,1,fl,f);
       fclose(f);
       for(int i=0;i<fl;i++) cout << d[i];
-      cout << endl;
+      cout << endl;      
     }
   }
   

@@ -1,6 +1,6 @@
 #include "mycon.h"
 
-MyCon::MyCon(char ho[],char us[],char pw[],char db[]){
+MyCon::MyCon(char *ho,char *us,char *pw,char *db){
   con=mysql_init(NULL);
   if(!mysql_real_connect(con,ho,us,pw,db,0,NULL,0)) cout << mysql_error(con) << endl;
 }
@@ -19,18 +19,18 @@ void MyCon::fail(){
   exit(1);
 }
 
-bool MyCon::query(char c[]){
+bool MyCon::query(char *c){
   if(v=mysql_query(con,c)) error();
   return v;
 }
 
-bool MyCon::queryd(char c[],Table &d){
+bool MyCon::queryd(char *c,Table &d){
   d.ins(c);
   if(v=mysql_query(con,c)) error();
   return v;
 }
 
-bool MyCon::outpoint(char q[]){
+bool MyCon::outpoint(char *q){
   res=mysql_store_result(con);
   if(res==NULL)return 1;
   row = mysql_fetch_row(res);

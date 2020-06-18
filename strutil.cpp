@@ -33,7 +33,7 @@ void Table::reset(int _y,int _x){
   }
 }
 
-void Table::ins(char q[]){
+void Table::ins(char *q){
   int n=strlen(q);
   char x[200][500];
   int j=0;
@@ -53,7 +53,7 @@ void Table::ins(char q[]){
   strcpy(q,x[0]);
 }
 
-void Table::equal(int i,char q[]){
+void Table::equal(int i,char *q){
   delete[] t[i];
   t[i]=q;
 }

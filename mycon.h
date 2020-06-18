@@ -13,12 +13,12 @@ class MyCon{
   MYSQL_ROW row;
   bool v;
   public:
-  MyCon(char ho[],char us[],char pw[],char db[]);
+  MyCon(char *ho,char *us,char *pw,char *db);
   void close();
   void error();
   void fail();
-  bool query(char c[]);
-  bool queryd(char c[],Table &d);
-  bool outpoint(char q[]);
+  bool query(char *c);
+  bool queryd(char *c,Table &d);
+  bool outpoint(char *q);
   bool outtable(Table &o);
 };
