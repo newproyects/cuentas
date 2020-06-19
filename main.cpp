@@ -1,4 +1,3 @@
-
 #include "mycon.h"
 
 int main(){
@@ -24,12 +23,15 @@ int main(){
   cout << "id: " << (strcmp(result,"")==0 ? "error de acceso" : result) << endl;
 
   if(strcmp(result,"")!=0){
+
     /*
+    Table user(10,40);
     cout << "tabla de usuarios\n";
     mc.query("select * from user");
-    mc.outtable(data);
-    for(int i=0;i<data.y;i++) cout << data.t[i] << endl;
+    mc.outtable(user);
+    for(int i=0;i<user.y;i++) cout << user.t[i] << endl;
     */
+    
     f=fopen(data.t[2],"rb");
     if(f==NULL) cout << "Archivo inexistente" << endl;
     else{
@@ -41,12 +43,15 @@ int main(){
       fread(d.t[2],1,fl,f);
       fclose(f);
 
+      //cout << d.t[2] << endl;
+      
       strcpy(d.t[0],result);
       strcpy(d.t[1],data.t[2]);
 
-      char *q="insert into arch(id_user,name,data) values('%s','%s','%s')";
-      q=d.insd(q);
-      cout << q << endl;
+      char *q="insert into arch(id_user,name_arch,data) values('%s','%s','%s')";
+
+      if(mc.indata(q,d)) cout << "error de ingreso de archivo\n";
+      else cout << "Archivo ingresado\n";
     }
   }
   

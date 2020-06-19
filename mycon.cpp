@@ -30,13 +30,13 @@ bool MyCon::queryd(char *c,Table &d){
   return v;
 }
 
-bool MyCon::outpoint(char *q){
+bool MyCon::outpoint(char *c){
   res=mysql_store_result(con);
   if(res==NULL)return 1;
   row = mysql_fetch_row(res);
-  strcpy(q,"");
+  strcpy(c,"");
   if(row==0) return 0;
-  strcpy(q,row[0]);
+  strcpy(c,row[0]);
   return 0;
 }
 
@@ -60,4 +60,13 @@ bool MyCon::outtable(Table &o){
   }while(row=mysql_fetch_row(res));
   
   return 0;
+}
+
+bool MyCon::indata(char *q,Table &d){
+  Table x(3,2*strlen(d.t[2])+1);
+  strcpy(x.t[0],d.t[0]);
+  strcpy(x.t[1],d.t[1]);
+  mysql_real_escape_string(con,x.t[2],d.t[2],strlen(d.t[2]));
+  if(v=mysql_query(con,x.insd(q))) error();
+  return v;
 }

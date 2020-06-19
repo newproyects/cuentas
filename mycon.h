@@ -7,18 +7,19 @@
 using namespace std;
 
 class MyCon{
-  private:
+private:
   MYSQL *con;
   MYSQL_RES *res;
   MYSQL_ROW row;
   bool v;
-  public:
+public:
   MyCon(char *ho,char *us,char *pw,char *db);
   void close();
   void error();
   void fail();
   bool query(char *c);
   bool queryd(char *c,Table &d);
-  bool outpoint(char *q);
+  bool outpoint(char *c);
   bool outtable(Table &o);
+  bool indata(char *q,Table &d);
 };
