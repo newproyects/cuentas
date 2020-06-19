@@ -13,8 +13,6 @@ int main(){
   fflush(stdin);
   cout << "ingresar contraseña: ";
   cin.getline(data.t[1],8,'\n');
-  cout << "ingresar archivo: ";
-  cin.getline(data.t[2],20,'\n');
   
   
   if(mc.queryd(c,data)) mc.fail();
@@ -29,6 +27,9 @@ int main(){
     mc.query("select * from user");
     mc.outtable(user);
     for(int i=0;i<user.y;i++) cout << user.t[i] << endl;
+    
+    cout << "ingresar archivo: ";
+    cin.getline(data.t[2],20,'\n');
     
     f=fopen(data.t[2],"rb");
     if(f==NULL) cout << "Archivo inexistente" << endl;
@@ -50,21 +51,19 @@ int main(){
       if(mc.indata(q,d)) cout << "error de ingreso de archivo\n";
       else cout << "Archivo ingresado\n";
 
-      cout << "archivo que desee ver: ";
+      cout << "archivo que desea ver: ";
+      cin.getline(d.t[1],20,'\n');
+      q="select data from arch where id_user='%s' and name_arch='%s'";
       
+      unsigned long* l;
 
+      if(mc.outdata(q,l,d))cout << "Archivo no encontrado\n";
+      else{
+	cout << q << endl;
+	cout << l << endl;
+      }
     }
   }
-  Table a(1,4);
-  q="select data from arch where id_arch='%s'";
-  strcpy(a.t[0],"104");
-  
-  unsigned long* l;
-
-
-  mc.outdata(q,l,a);
-  cout << q << endl;
-  cout << l << endl;
   
   mc.close();
   return 0;
