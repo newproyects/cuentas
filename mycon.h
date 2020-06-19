@@ -17,10 +17,10 @@ public:
   void close();
   void error();
   void fail();
-  bool query(char *c);
-  bool queryd(char *c,Table &d);
-  bool outpoint(char *c);
-  bool outtable(Table &o);
+  bool query(char *q);
+  bool queryd(char *q,Table &d);
+  bool outpoint(char *q);
+  bool outtable(Table &d);
   bool indata(char *q,Table &d);
   bool outdata(char* &q,Table &d);
   bool outdata(char* &q,unsigned long* &i,Table &d);

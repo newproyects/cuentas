@@ -19,28 +19,28 @@ void MyCon::fail(){
   exit(1);
 }
 
-bool MyCon::query(char *c){
-  if(v=mysql_query(con,c)) error();
+bool MyCon::query(char *q){
+  if(v=mysql_query(con,q)) error();
   return v;
 }
 
-bool MyCon::queryd(char *c,Table &d){
-  d.ins(c);
-  if(v=mysql_query(con,c)) error();
+bool MyCon::queryd(char *q,Table &d){
+  d.ins(q);
+  if(v=mysql_query(con,q)) error();
   return v;
 }
 
-bool MyCon::outpoint(char *c){
+bool MyCon::outpoint(char *q){
   res=mysql_store_result(con);
   if(res==NULL)return 1;
   row = mysql_fetch_row(res);
-  strcpy(c,"");
+  strcpy(q,"");
   if(row==0) return 0;
-  strcpy(c,row[0]);
+  strcpy(q,row[0]);
   return 0;
 }
 
-bool MyCon::outtable(Table &o){
+bool MyCon::outtable(Table &d){
   int j=0;
   res=mysql_store_result(con);
   
@@ -49,12 +49,12 @@ bool MyCon::outtable(Table &o){
   row=mysql_fetch_row(res);
   int n = mysql_num_fields(res);
   int m = mysql_affected_rows(con);
-  o.reset(m,200);
+  d.reset(m,200);
   if(row==0) return 0;
   do{
     for(int i=0;i<n;i++){
-      strcat(o.t[j],row[i]);
-      strcat(o.t[j]," ");
+      strcat(d.t[j],row[i]);
+      strcat(d.t[j]," ");
     }
     j++;
   }while(row=mysql_fetch_row(res));
