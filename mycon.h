@@ -22,4 +22,6 @@ public:
   bool outpoint(char *c);
   bool outtable(Table &o);
   bool indata(char *q,Table &d);
+  bool outdata(char* &q,Table &d);
+  bool outdata(char* &q,unsigned long* &i,Table &d);
 };

@@ -70,3 +70,28 @@ bool MyCon::indata(char *q,Table &d){
   if(v=mysql_query(con,x.insd(q))) error();
   return v;
 }
+
+bool MyCon::outdata(char* &q,Table &d){
+  char x[100];
+  strcpy(x,q);
+  if(v=queryd(x,d)) return 1;
+  res=mysql_store_result(con);
+  if(res==NULL) return 1;
+  row = mysql_fetch_row(res);
+  if(row==0) return 1;
+  q=row[0];
+  return 0;
+}
+
+bool MyCon::outdata(char* &q,unsigned long* &i,Table &d){
+  char x[100];
+  strcpy(x,q);
+  if(v=queryd(x,d)) return 1;
+  res=mysql_store_result(con);
+  if(res==NULL) return 1;
+  row = mysql_fetch_row(res);
+  if(row==0) return 1;
+  i=mysql_fetch_lengths(res);
+  q=row[0];
+  return 0;
+}
