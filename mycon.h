@@ -13,7 +13,7 @@ private:
   MYSQL_ROW row;
   bool v;
 public:
-  MyCon(char *ho,char *us,char *pw,char *db);
+  MyCon(const char *ho,const char *us,const char *pw,const char *db);
   void close();
   void error();
   void fail();
