@@ -2,7 +2,17 @@
 
 MyCon::MyCon(){}
 
+MyCon::MyCon(char *ho,char *us,char *pw,char *db){
+  con=mysql_init(NULL);
+  if(!mysql_real_connect(con,ho,us,pw,db,0,NULL,0)) cout << mysql_error(con) << endl;
+}
+
 MyCon::MyCon(const char *ho,const char *us,const char *pw,const char *db){
+  con=mysql_init(NULL);
+  if(!mysql_real_connect(con,ho,us,pw,db,0,NULL,0)) cout << mysql_error(con) << endl;
+}
+
+void MyCon::init(char *ho,char *us,char *pw,char *db){
   con=mysql_init(NULL);
   if(!mysql_real_connect(con,ho,us,pw,db,0,NULL,0)) cout << mysql_error(con) << endl;
 }
@@ -27,6 +37,11 @@ void MyCon::fail(){
 }
 
 bool MyCon::query(char *q){
+  if(v=mysql_query(con,q)) error();
+  return v;
+}
+
+bool MyCon::query(const char *q){
   if(v=mysql_query(con,q)) error();
   return v;
 }

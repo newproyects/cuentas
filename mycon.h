@@ -14,12 +14,15 @@ private:
   bool v;
 public:
   MyCon();
+  MyCon(char *ho,char *us,char *pw,char *db);
   MyCon(const char *ho,const char *us,const char *pw,const char *db);
+  void init(char *ho,char *us,char *pw,char *db);
   void init(const char *ho,const char *us,const char *pw,const char *db);
   void close();
   void error();
   void fail();
   bool query(char *q);
+  bool query(const char *q);
   bool queryd(char *q,Table &d);
   bool outpoint(char *q);
   bool outtable(Table &d);

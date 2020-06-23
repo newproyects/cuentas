@@ -71,6 +71,12 @@ char* Table::insd(char *q){
   return qu;
 }
 
+char* Table::insd(const char *q){
+  char *qu=new char[strlen(q)+strlen(t[2])];
+  snprintf(qu,strlen(q)+strlen(t[0])+strlen(t[1])+strlen(t[2]),q,t[0],t[1],t[2]);
+  return qu;
+}
+
 void Table::equal(int i,char *q){
   delete[] t[i];
   t[i]=q;
