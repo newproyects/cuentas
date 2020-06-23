@@ -13,7 +13,9 @@ private:
   MYSQL_ROW row;
   bool v;
 public:
+  MyCon();
   MyCon(const char *ho,const char *us,const char *pw,const char *db);
+  void init(const char *ho,const char *us,const char *pw,const char *db);
   void close();
   void error();
   void fail();

@@ -1,5 +1,7 @@
 #include "strutil.h"
 
+Table::Table(){}
+
 Table::Table(int _y,int _x){
   x=_x;
   y=_y;
@@ -13,6 +15,16 @@ Table::Table(int _y,int _x){
 Table::~Table(){
   for(int i=0;i<y;i++) delete[] t[i];
   delete[] t;
+}
+
+void Table::init(int _y,int _x){
+  x=_x;
+  y=_y;
+  t=new char*[y];
+  for(int i=0;i<y;i++){
+    t[i]=new char[x];
+    strcpy(t[i],"");
+  }
 }
 
 void Table::cln(){

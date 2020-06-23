@@ -1,6 +1,13 @@
 #include "mycon.h"
 
+MyCon::MyCon(){}
+
 MyCon::MyCon(const char *ho,const char *us,const char *pw,const char *db){
+  con=mysql_init(NULL);
+  if(!mysql_real_connect(con,ho,us,pw,db,0,NULL,0)) cout << mysql_error(con) << endl;
+}
+
+void MyCon::init(const char *ho,const char *us,const char *pw,const char *db){
   con=mysql_init(NULL);
   if(!mysql_real_connect(con,ho,us,pw,db,0,NULL,0)) cout << mysql_error(con) << endl;
 }
