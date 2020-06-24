@@ -56,7 +56,7 @@ bool MyCon::outpoint(char *q){
   res=mysql_store_result(con);
   if(res==NULL)return 1;
   row = mysql_fetch_row(res);
-  strcpy(q,"");
+  strcpy(q,"\0");
   if(row==0) return 0;
   strcpy(q,row[0]);
   return 0;

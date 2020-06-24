@@ -8,7 +8,7 @@ Table::Table(int _y,int _x){
   t=new char*[y];
   for(int i=0;i<y;i++){
     t[i]=new char[x];
-    strcpy(t[i],"");
+    strcpy(t[i],"\0");
   }
 }
 
@@ -23,13 +23,13 @@ void Table::init(int _y,int _x){
   t=new char*[y];
   for(int i=0;i<y;i++){
     t[i]=new char[x];
-    strcpy(t[i],"");
+    strcpy(t[i],"\0");
   }
 }
 
 void Table::cln(){
   for(int i=0;i<y;i++){
-    strcpy(t[i],"");
+    strcpy(t[i],"\0");
   }
 }
 
@@ -41,7 +41,7 @@ void Table::reset(int _y,int _x){
   t=new char*[y];
   for(int i=0;i<y;i++){
     t[i]=new char[x];
-    strcpy(t[i],"");
+    strcpy(t[i],"\0");
   }
 }
 
