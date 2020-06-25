@@ -13,7 +13,7 @@ public:
   void cln();
   void reset(int _y,int _x);
   void ins(char *q);
-  char* insd(char *q);
-  char* insd(const char *q);
+  char* insd(char *q,int i);
+  char* insd(const char *q,int i);
   void equal(int i,char *q);
 };
