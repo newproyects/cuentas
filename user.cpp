@@ -45,3 +45,15 @@ bool User::id(){
   strcpy(d.t[2],x.t[0]);
   return 0;
 }
+
+bool User::active(bool b){
+  x.reset(1,10);
+  strcpy(x.t[0],d.t[2]);
+  if(b){
+    if(mc.query("update user set active=0")) return 1;
+    if(mc.queryd("update user set active=1 where id='%s'",x,1)) return 1;
+    return 0;
+  }
+  if(mc.queryd("update user set active=0 where id='%s'",x,1)) return 1;
+  return 0;
+}
