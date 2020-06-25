@@ -7,5 +7,9 @@ public:
   MyCon mc;
   Table x;
   User();
+  User(char *a,char *b);
+  User(const char *a,const char *b);
   ~User();
+  void set(char *a,char *b);
+  void set(const char *a,const char *b);
 };
