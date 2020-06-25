@@ -29,6 +29,6 @@ public:
   bool outtable(Table &d);
   bool indata(char *q,Table &d,int i);
   bool indata(const char *q,Table &d,int i);
-  bool outdata(char* &q,Table &d);
-  bool outdata(char* &q,unsigned long* &i,Table &d);
+  bool outdata(Table &d);
+  bool outdata(Table &d,unsigned long* &i);
 };
