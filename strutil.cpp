@@ -45,26 +45,6 @@ void Table::reset(int _y,int _x){
   }
 }
 
-void Table::ins(char *q){
-  int n=strlen(q);
-  char x[200][500];
-  int j=0;
-  int k=0;
-  int l=0;
-
-  for(int i=0;i<n;i++){
-    if(q[i]!='%')x[j][k++]=q[i];
-    else{
-      strcpy(x[++j],t[l++]);
-      j++;
-      i++;
-      k=0;
-    }
-  }
-  for(int i=1;i<=j;i++)strcat(x[0],x[i]);
-  strcpy(q,x[0]);
-}
-
 char* Table::insd(char *q,int i){
   char *qu;
   switch(i){

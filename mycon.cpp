@@ -46,9 +46,13 @@ bool MyCon::query(const char *q){
   return v;
 }
 
-bool MyCon::queryd(char *q,Table &d){
-  d.ins(q);
-  if(v=mysql_query(con,q)) error();
+bool MyCon::queryd(char *q,Table &d,int i){
+  if(v=mysql_query(con,d.insd(q,i))) error();
+  return v;
+}
+
+bool MyCon::queryd(const char *q,Table &d,int i){
+  if(v=mysql_query(con,d.insd(q,i))) error();
   return v;
 }
 
@@ -84,15 +88,23 @@ bool MyCon::outtable(Table &d){
   return 0;
 }
 
-bool MyCon::indata(char *q,Table &d){
-  Table x(3,2*strlen(d.t[2])+1);
-  strcpy(x.t[0],d.t[0]);
-  strcpy(x.t[1],d.t[1]);
-  mysql_real_escape_string(con,x.t[2],d.t[2],strlen(d.t[2]));
-  if(v=mysql_query(con,x.insd(q))) error();
+bool MyCon::indata(char *q,Table &d,int i){
+  Table x(i,2*strlen(d.t[i-1])+1);
+  for(int j=0;j<i-1;j++)strcpy(x.t[j],d.t[j]);
+  mysql_real_escape_string(con,x.t[i-1],d.t[i-1],strlen(d.t[i-1]));
+  if(v=mysql_query(con,x.insd(q,i))) error();
   return v;
 }
 
+bool MyCon::indata(const char *q,Table &d,int i){
+  Table x(i,2*strlen(d.t[i-1])+1);
+  for(int j=0;j<i-1;j++)strcpy(x.t[j],d.t[j]);
+  mysql_real_escape_string(con,x.t[i-1],d.t[i-1],strlen(d.t[i-1]));
+  if(v=mysql_query(con,x.insd(q,i))) error();
+  return v;
+}
+
+/*
 bool MyCon::outdata(char* &q,Table &d){
   char x[100];
   strcpy(x,q);
@@ -117,3 +129,4 @@ bool MyCon::outdata(char* &q,unsigned long* &i,Table &d){
   q=row[0];
   return 0;
 }
+*/

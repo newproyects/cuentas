@@ -23,10 +23,12 @@ public:
   void fail();
   bool query(char *q);
   bool query(const char *q);
-  bool queryd(char *q,Table &d);
+  bool queryd(char *q,Table &d,int i);
+  bool queryd(const char *q,Table &d,int i);
   bool outpoint(char *q);
   bool outtable(Table &d);
-  bool indata(char *q,Table &d);
+  bool indata(char *q,Table &d,int i);
+  bool indata(const char *q,Table &d,int i);
   bool outdata(char* &q,Table &d);
   bool outdata(char* &q,unsigned long* &i,Table &d);
 };
