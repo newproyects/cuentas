@@ -5,7 +5,8 @@ int main(){
 
   us.id();
   cout << us.x.t[0] << endl;
-  us.active(0);
+  us.setact(0);
+  us.setacs(0);
   
   return 0;
 }

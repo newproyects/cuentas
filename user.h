@@ -13,5 +13,6 @@ public:
   void set(char *a,char *b);
   void set(const char *a,const char *b);
   bool id();
-  bool active(bool b);
+  bool setact(bool b);
+  bool setacs(bool b);
 };

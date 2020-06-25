@@ -46,7 +46,7 @@ bool User::id(){
   return 0;
 }
 
-bool User::active(bool b){
+bool User::setact(bool b){
   x.reset(1,10);
   strcpy(x.t[0],d.t[2]);
   if(b){
@@ -55,5 +55,13 @@ bool User::active(bool b){
     return 0;
   }
   if(mc.queryd("update user set active=0 where id='%s'",x,1)) return 1;
+  return 0;
+}
+
+bool User::setacs(bool b){
+  x.reset(1,10);
+  strcpy(x.t[0],d.t[2]);
+  if(b)if(mc.queryd("update user set acces=1 where id='%s'",x,1)) return 1;
+  if(!b)if(mc.queryd("update user set acces=0 where id='%s'",x,1)) return 1;
   return 0;
 }
