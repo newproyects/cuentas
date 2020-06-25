@@ -15,4 +15,5 @@ public:
   bool id();
   bool setact(bool b);
   bool setacs(bool b);
+  bool getacs(bool &b);
 };

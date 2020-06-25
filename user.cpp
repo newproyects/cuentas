@@ -65,3 +65,14 @@ bool User::setacs(bool b){
   if(!b)if(mc.queryd("update user set acces=0 where id='%s'",x,1)) return 1;
   return 0;
 }
+
+bool User::getacs(bool &b){
+  x.reset(1,10);
+  strcpy(x.t[0],d.t[2]);
+  if(mc.queryd("select acces from user where id='%s'",x,1)) return 1;
+  if(mc.outpoint(x.t[0])) return 1;
+  if(strcmp(x.t[0],"0")==0) b=0;
+  if(strcmp(x.t[0],"1")==0) b=1;
+  return 0;
+}
+
