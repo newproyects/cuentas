@@ -44,6 +44,13 @@ bool User::create(){
   return 0;
 }
 
+bool User::del(){
+  x.reset(1,10);
+  strcpy(x.t[0],d.t[2]);
+  if(mc.queryd("delete from user where id='%s'",x,1)) return 1;
+  return 0;
+}
+
 bool User::id(){
   x.reset(2,10);
   strcpy(x.t[0],d.t[0]);

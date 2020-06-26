@@ -13,6 +13,7 @@ public:
   void set(char *a,char *b);
   void set(const char *a,const char *b);
   bool create();
+  bool del();
   bool id();
   bool setact(bool b);
   bool setacs(bool b);

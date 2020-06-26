@@ -4,7 +4,8 @@ int main(){
   User us("tito","kmotito");
   bool b;
 
-  us.create();
+  us.id();
+  us.del();
   
   return 0;
 }
