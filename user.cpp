@@ -36,6 +36,14 @@ void User::set(const char *a,const char *b){
   strcpy(d.t[1],b);
 }
 
+bool User::create(){
+  x.reset(2,10);
+  strcpy(x.t[0],d.t[0]);
+  strcpy(x.t[1],d.t[1]);
+  if(mc.queryd("insert into user(name,pswd) values('%s','%s')",x,2)) return 1;
+  return 0;
+}
+
 bool User::id(){
   x.reset(2,10);
   strcpy(x.t[0],d.t[0]);
