@@ -4,8 +4,7 @@ int main(){
   User us("tito","kmotito");
   bool b;
 
-  us.id();
-  us.del();
+  cout << us.check() << endl;
   
   return 0;
 }

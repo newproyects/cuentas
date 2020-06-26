@@ -36,6 +36,15 @@ void User::set(const char *a,const char *b){
   strcpy(d.t[1],b);
 }
 
+bool User::check(){
+  x.reset(1,10);
+  strcpy(x.t[0],d.t[0]);
+  if(mc.queryd("select id from user where name='%s'",x,1)) return 1;
+  if(mc.outpoint(x.t[0])) return 1;
+  if(strcmp(x.t[0],"\0")!=0) return 1;
+  return 0;
+}
+
 bool User::create(){
   x.reset(2,10);
   strcpy(x.t[0],d.t[0]);
