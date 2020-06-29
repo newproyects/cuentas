@@ -2,10 +2,10 @@
 
 class User{
 private:
-  Table d;
-public:
   MyCon mc;
+  Table d;
   Table x;
+public:
   User();
   User(char *a,char *b);
   User(const char *a,const char *b);
