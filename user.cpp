@@ -100,3 +100,24 @@ bool User::getacs(bool &b){
   return 0;
 }
 
+bool User::checkdoc(char *a,char *b){
+  x.reset(3,strlen(a)*5);
+  strcpy(x.t[0],d.t[2]);
+  strcpy(x.t[1],a);
+  strcpy(x.t[2],b);
+  if(mc.queryd("select id_arch from arch where id_user='%s' and name_arch='%s' and id_dir='%s'",x,3)) return 1;
+  if(mc.outpoint(x.t[0])) return 1;
+  if(strcmp(x.t[0],"\0")!=0) return 1;
+  return 0;
+}
+
+bool User::checkdoc(const char *a,const char *b){
+  x.reset(3,strlen(a)*5);
+  strcpy(x.t[0],d.t[2]);
+  strcpy(x.t[1],a);
+  strcpy(x.t[2],b);
+  if(mc.queryd("select id_arch from arch where id_user='%s' and name_arch='%s' and id_dir='%s'",x,3)) return 1;
+  if(mc.outpoint(x.t[0])) return 1;
+  if(strcmp(x.t[0],"\0")!=0) return 1;
+  return 0;
+}

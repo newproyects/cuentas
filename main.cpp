@@ -4,7 +4,8 @@ int main(){
   User us("tito","kmotito");
   bool b;
 
-  cout << us.check() << endl;
+  us.id();
+  cout << us.checkdoc("a","0") << endl;
   
   return 0;
 }

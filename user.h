@@ -19,4 +19,6 @@ public:
   bool setact(bool b);
   bool setacs(bool b);
   bool getacs(bool &b);
+  bool checkdoc(char *a,char *b);
+  bool checkdoc(const char *a,const char *b);
 };
