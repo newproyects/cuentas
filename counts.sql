@@ -28,12 +28,13 @@ DROP TABLE IF EXISTS `arch`;
 CREATE TABLE `arch` (
   `id_arch` int NOT NULL AUTO_INCREMENT,
   `id_user` int NOT NULL,
+  `id_dir` int NOT NULL,
   `name_arch` varchar(40) NOT NULL,
   `data` mediumblob NOT NULL,
   PRIMARY KEY (`id_arch`),
   KEY `id_user` (`id_user`),
   CONSTRAINT `arch_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +43,7 @@ CREATE TABLE `arch` (
 
 LOCK TABLES `arch` WRITE;
 /*!40000 ALTER TABLE `arch` DISABLE KEYS */;
+INSERT INTO `arch` VALUES (0,0,0,'home',_binary '0-dir-0');
 /*!40000 ALTER TABLE `arch` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +61,7 @@ CREATE TABLE `user` (
   `active` tinyint(1) NOT NULL DEFAULT '0',
   `acces` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -81,4 +83,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-06-25 14:23:13
+-- Dump completed on 2020-06-27 18:02:36
