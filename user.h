@@ -29,4 +29,6 @@ public:
   bool inarch(const char *a,const char *b,char *c);
   bool indir(char *a,char *b);
   bool indir(const char *a,const char *b);
+  bool delarch(char *a,char *b);
+  bool delarch(const char *a,const char *b);
 };
