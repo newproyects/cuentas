@@ -23,4 +23,6 @@ public:
   bool checkdoc(const char *a,const char *b);
   bool inarch(char *a,char *b,char *c);
   bool inarch(const char *a,const char *b,char *c);
+  bool indir(char *a,char *b);
+  bool indir(const char *a,const char *b);
 };
