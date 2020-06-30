@@ -5,19 +5,18 @@ int main(){
   bool b;
 
   us.id();
-  cout << us.checkdoc("cartito","0") << endl;
-
-  FILE *f;
+  cout << us.checkdoc("a","0") << endl;
 
 
-  if(us.checkdoc("cartito","0")) cout << "Directorio ya existente en tu directorio\n";
+  if(!us.checkdoc("a","0")) cout << "Archivo(a) no encontrado\n";
+  else if(us.checkdoc("b","0")) cout << "Archivo(b) ya existente\n";
   else{
-    cout << "Creando directorio..." << endl;
-    if(us.indir("cartito","0")) cout << "error al crear directorio\n";
-    else cout << "Directorio creado\n";    
+    cout << "RENAME(a->b)..." << endl;
+    if(us.renamedoc("a","b","0")) cout << "error de rename\n";
+    else cout << "Nombre cambiado\n";    
   }
 
-  cout << us.checkdoc("cartito","0") << endl;
+  cout << us.checkdoc("a","0") << endl;
   
   return 0;
 }
