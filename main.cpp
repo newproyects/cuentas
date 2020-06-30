@@ -6,12 +6,9 @@ int main(){
   Table x(1,4);
 
   us.id();
-  if(!us.checkdoc("main.cpp","0")) cout << "No se encontro main.cpp\n";
-  else{
-    cout << "Eliminando main.cpp...\n";
-    if(us.delarch("main.cpp","0")) cout << "Error al eliminar\n";
-    else cout << "Archivo eliminado\n";
-  }
+
+  cout << us.iddoc("carpetap","0",x) << endl;
+  cout << us.deldir(x.t[0]) << endl;
   
   return 0;
 }

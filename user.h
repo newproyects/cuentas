@@ -31,4 +31,6 @@ public:
   bool indir(const char *a,const char *b);
   bool delarch(char *a,char *b);
   bool delarch(const char *a,const char *b);
+  bool deldir(char *c);
+  bool deldir(const char *c);
 };
