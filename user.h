@@ -21,6 +21,8 @@ public:
   bool getacs(bool &b);
   bool checkdoc(char *a,char *b);
   bool checkdoc(const char *a,const char *b);
+  bool iddoc(char *a,char *b,Table &c);
+  bool iddoc(const char *a,const char *b,Table &c);
   bool renamedoc(char *a,char *b,char *c);
   bool renamedoc(const char *a,const char *b,const char *c);
   bool inarch(char *a,char *b,char *c);
