@@ -245,3 +245,27 @@ bool User::deldir(const char *c){
   if(mc.queryd("delete from arch where id_arch='%s' and id_user='%s'",o,2)) return 1;
   return 0;
 }
+
+bool User::delall(char *c){
+  Table a(1,1);
+  Table o(2,strlen(c)*5);
+  strcpy(o.t[0],c);
+  strcpy(o.t[1],d.t[2]);
+  if(mc.queryd("select id_arch from arch where data='0-dir-0' and id_dir='%s' and id_user='%s'",o,2));
+  if(mc.outtable(a));
+  if(!(strcmp(a.t[0],"\0")==0)) for(int i=0;i<a.y;i++) deldir(a.t[i]);
+  if(mc.queryd("delete from arch where id_dir='%s' and id_user='%s'",o,2)) return 1;
+  return 0;
+}
+
+bool User::delall(const char *c){
+  Table a(1,1);
+  Table o(2,strlen(c)*5);
+  strcpy(o.t[0],c);
+  strcpy(o.t[1],d.t[2]);
+  if(mc.queryd("select id_arch from arch where data='0-dir-0' and id_dir='%s' and id_user='%s'",o,2));
+  if(mc.outtable(a));
+  if(!(strcmp(a.t[0],"\0")==0)) for(int i=0;i<a.y;i++) deldir(a.t[i]);
+  if(mc.queryd("delete from arch where id_dir='%s' and id_user='%s'",o,2)) return 1;
+  return 0;
+}

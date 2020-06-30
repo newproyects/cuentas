@@ -33,4 +33,6 @@ public:
   bool delarch(const char *a,const char *b);
   bool deldir(char *c);
   bool deldir(const char *c);
+  bool delall(char *c);
+  bool delall(const char *c);
 };

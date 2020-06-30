@@ -7,8 +7,8 @@ int main(){
 
   us.id();
 
-  cout << us.iddoc("carpetap","0",x) << endl;
-  cout << us.deldir(x.t[0]) << endl;
+  cout << us.iddoc("carpetap","177",x) << endl;
+  cout << us.delall(x.t[0]) << endl;
   
   return 0;
 }
