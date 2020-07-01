@@ -35,4 +35,6 @@ public:
   bool deldir(const char *c);
   bool delall(char *c);
   bool delall(const char *c);
+  bool movdoc(char *a,char *b,char *c);
+  bool movdoc(const char *a,const char *b,const char *c);
 };
