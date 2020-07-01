@@ -37,4 +37,6 @@ public:
   bool delall(const char *c);
   bool movdoc(char *a,char *b,char *c);
   bool movdoc(const char *a,const char *b,const char *c);
+  bool movall(char *a,char *b);
+  bool movall(const char *a,const char *b);
 };

@@ -7,8 +7,8 @@ int main(){
 
   us.id();
 
-  if(us.movdoc("Makefile","0","150")) cout << "Error al mover Makefile\n";
-  else cout << "Makefile movido correctamente\n";
+  if(us.movall("0","150")) cout << "Error al mover archivos\n";
+  else cout << "Archivos movidos correctamente\n";
   
   return 0;
 }
