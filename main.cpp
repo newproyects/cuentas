@@ -7,8 +7,8 @@ int main(){
 
   us.id();
 
-  if(us.movall("0","150")) cout << "Error al mover archivos\n";
-  else cout << "Archivos movidos correctamente\n";
+  if(us.coparch("koko","150","0")) cout << "Error al copiar archivo\n";
+  else cout << "Archivo copiado correctamente\n";
   
   return 0;
 }

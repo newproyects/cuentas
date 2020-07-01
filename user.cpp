@@ -309,3 +309,23 @@ bool User::movall(const char *a,const char *b){
   if(mc.queryd("update arch set id_dir='%s' where id_user='%s' and id_dir='%s' and not(id_arch='%s')",x,4)) return 1;
   return 0;
 }
+
+bool User::coparch(char *a,char *b,char *c){
+  x.reset(4,strlen(a)*5);
+  strcpy(x.t[0],c);
+  strcpy(x.t[1],d.t[2]);
+  strcpy(x.t[2],a);
+  strcpy(x.t[3],b);
+  if(mc.queryd("insert into arch(id_user,name_arch,id_dir,data) select id_user,name_arch,'%s',data from arch where id_user='%s' and name_arch='%s' and id_dir='%s'",x,4)) return 1;
+  return 0;
+}
+
+bool User::coparch(const char *a,const char *b,const char *c){
+  x.reset(4,strlen(a)*5);
+  strcpy(x.t[0],c);
+  strcpy(x.t[1],d.t[2]);
+  strcpy(x.t[2],a);
+  strcpy(x.t[3],b);
+  if(mc.queryd("insert into arch(id_user,name_arch,id_dir,data) select id_user,name_arch,'%s',data from arch where id_user='%s' and name_arch='%s' and id_dir='%s'",x,4)) return 1;
+  return 0;
+}

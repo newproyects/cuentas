@@ -39,4 +39,6 @@ public:
   bool movdoc(const char *a,const char *b,const char *c);
   bool movall(char *a,char *b);
   bool movall(const char *a,const char *b);
+  bool coparch(char *a,char *b,char *c);
+  bool coparch(const char *a,const char *b,const char *c);
 };
