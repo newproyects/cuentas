@@ -41,4 +41,6 @@ public:
   bool movall(const char *a,const char *b);
   bool coparch(char *a,char *b,char *c);
   bool coparch(const char *a,const char *b,const char *c);
+  bool copdir(char *a,char *b,char *c);
+  bool copdir(const char *a,const char *b,const char *c);
 };

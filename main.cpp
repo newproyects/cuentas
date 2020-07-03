@@ -1,14 +1,13 @@
 #include "user.h"
 
 int main(){
-  User us("tito","kmotito");
+  User us("angel","pollo");
   bool b;
   Table x(1,4);
 
   us.id();
 
-  if(us.coparch("koko","150","0")) cout << "Error al copiar archivo\n";
-  else cout << "Archivo copiado correctamente\n";
+  us.copdir("177","0","192");
   
   return 0;
 }

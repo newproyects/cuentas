@@ -225,8 +225,8 @@ bool User::deldir(char *c){
   Table o(2,strlen(c)*5);
   strcpy(o.t[0],c);
   strcpy(o.t[1],d.t[2]);
-  if(mc.queryd("select id_arch from arch where data='0-dir-0' and id_dir='%s' and id_user='%s'",o,2));
-  if(mc.outtable(a));
+  if(mc.queryd("select id_arch from arch where data='0-dir-0' and id_dir='%s' and id_user='%s'",o,2)) return 1;
+  if(mc.outtable(a)) return 1;
   if(!(strcmp(a.t[0],"\0")==0)) for(int i=0;i<a.y;i++) deldir(a.t[i]);
   if(mc.queryd("delete from arch where id_dir='%s' and id_user='%s'",o,2)) return 1;
   if(mc.queryd("delete from arch where id_arch='%s' and id_user='%s'",o,2)) return 1;
@@ -238,8 +238,8 @@ bool User::deldir(const char *c){
   Table o(2,strlen(c)*5);
   strcpy(o.t[0],c);
   strcpy(o.t[1],d.t[2]);
-  if(mc.queryd("select id_arch from arch where data='0-dir-0' and id_dir='%s' and id_user='%s'",o,2));
-  if(mc.outtable(a));
+  if(mc.queryd("select id_arch from arch where data='0-dir-0' and id_dir='%s' and id_user='%s'",o,2)) return 1;
+  if(mc.outtable(a)) return 1;
   if(!(strcmp(a.t[0],"\0")==0)) for(int i=0;i<a.y;i++) deldir(a.t[i]);
   if(mc.queryd("delete from arch where id_dir='%s' and id_user='%s'",o,2)) return 1;
   if(mc.queryd("delete from arch where id_arch='%s' and id_user='%s'",o,2)) return 1;
@@ -327,5 +327,41 @@ bool User::coparch(const char *a,const char *b,const char *c){
   strcpy(x.t[2],a);
   strcpy(x.t[3],b);
   if(mc.queryd("insert into arch(id_user,name_arch,id_dir,data) select id_user,name_arch,'%s',data from arch where id_user='%s' and name_arch='%s' and id_dir='%s'",x,4)) return 1;
+  return 0;
+}
+
+bool User::copdir(char *a,char *b,char *c){
+  Table w(1,strlen(a));
+  Table o(4,strlen(a));
+  strcpy(o.t[0],c);
+  strcpy(o.t[1],d.t[2]);
+  strcpy(o.t[2],a);
+  strcpy(o.t[3],b);
+  if(mc.queryd("insert into arch(id_user,name_arch,id_dir,data) select id_user,name_arch,%s,data from arch where id_user='%s' and id_arch='%s' and id_dir='%s'",o,4)) return 1;
+  if(mc.queryd("select id_arch from arch where id_dir='%s' and id_user='%s' and name_arch=(select name_arch from arch where id_arch='%s')",o,3)) return 1;
+  if(mc.outpoint(o.t[0])) return 1;
+  if(mc.queryd("insert into arch(id_user,name_arch,id_dir,data) select id_user,name_arch,%s,data from arch where id_user='%s' and id_dir='%s' and not(data='0-dir-0')",o,3)) return 1;
+  strcpy(w.t[0],o.t[2]);
+  if(mc.queryd("select id_arch from arch where id_dir='%s' and data='0-dir-0'",w,1)) return 1;
+  if(mc.outtable(w)) return 1;
+  if(!(strcmp(w.t[0],"\0")==0)) for(int i=0;i<w.y;i++) copdir(w.t[i],o.t[2],o.t[0]);
+  return 0;
+}
+
+bool User::copdir(const char *a,const char *b,const char *c){
+  Table w(1,strlen(a));
+  Table o(4,strlen(a));
+  strcpy(o.t[0],c);
+  strcpy(o.t[1],d.t[2]);
+  strcpy(o.t[2],a);
+  strcpy(o.t[3],b);
+  if(mc.queryd("insert into arch(id_user,name_arch,id_dir,data) select id_user,name_arch,%s,data from arch where id_user='%s' and id_arch='%s' and id_dir='%s'",o,4)) return 1;
+  if(mc.queryd("select id_arch from arch where id_dir='%s' and id_user='%s' and name_arch=(select name_arch from arch where id_arch='%s')",o,3)) return 1;
+  if(mc.outpoint(o.t[0])) return 1;
+  if(mc.queryd("insert into arch(id_user,name_arch,id_dir,data) select id_user,name_arch,%s,data from arch where id_user='%s' and id_dir='%s' and not(data='0-dir-0')",o,3)) return 1;
+  strcpy(w.t[0],o.t[2]);
+  if(mc.queryd("select id_arch from arch where id_dir='%s' and data='0-dir-0'",w,1)) return 1;
+  if(mc.outtable(w)) return 1;
+  if(!(strcmp(w.t[0],"\0")==0)) for(int i=0;i<w.y;i++) copdir(w.t[i],o.t[2],o.t[0]);
   return 0;
 }
