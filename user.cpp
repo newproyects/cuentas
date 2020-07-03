@@ -365,3 +365,29 @@ bool User::copdir(const char *a,const char *b,const char *c){
   if(!(strcmp(w.t[0],"\0")==0)) for(int i=0;i<w.y;i++) copdir(w.t[i],o.t[2],o.t[0]);
   return 0;
 }
+
+bool User::copall(char *a,char *b){
+  Table w(1,1);
+  Table o(3,strlen(a));
+  strcpy(o.t[0],b);
+  strcpy(o.t[1],d.t[2]);
+  strcpy(o.t[2],a);
+  if(mc.queryd("insert into arch(id_user,name_arch,id_dir,data) select id_user,name_arch,%s,data from arch where id_user='%s' and id_dir='%s' and not(data='0-dir-0')",o,3)) return 1;
+  if(mc.queryd("select id_arch from arch where not(id_dir='%s') and id_user='%s' and id_dir='%s' and data='0-dir-0'",o,3)) return 1;
+  if(mc.outtable(w));
+  if(!(strcmp(w.t[0],"\0")==0)) for(int i=0;i<w.y;i++) copdir(w.t[i],o.t[2],o.t[0]);
+  return 0;
+}
+
+bool User::copall(const char *a,const char *b){
+  Table w(1,1);
+  Table o(3,strlen(a));
+  strcpy(o.t[0],b);
+  strcpy(o.t[1],d.t[2]);
+  strcpy(o.t[2],a);
+  if(mc.queryd("insert into arch(id_user,name_arch,id_dir,data) select id_user,name_arch,%s,data from arch where id_user='%s' and id_dir='%s' and not(data='0-dir-0')",o,3)) return 1;
+  if(mc.queryd("select id_arch from arch where not(id_dir='%s') and id_user='%s' and id_dir='%s' and data='0-dir-0'",o,3)) return 1;
+  if(mc.outtable(w));
+  if(!(strcmp(w.t[0],"\0")==0)) for(int i=0;i<w.y;i++) copdir(w.t[i],o.t[2],o.t[0]);
+  return 0;
+}

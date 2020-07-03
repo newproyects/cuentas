@@ -7,7 +7,8 @@ int main(){
 
   us.id();
 
-  us.copdir("177","0","192");
+  //us.copdir("177","0","192");
+  us.copall("177","192");
   
   return 0;
 }

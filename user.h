@@ -43,4 +43,6 @@ public:
   bool coparch(const char *a,const char *b,const char *c);
   bool copdir(char *a,char *b,char *c);
   bool copdir(const char *a,const char *b,const char *c);
+  bool copall(char *a,char *b);
+  bool copall(const char *a,const char *b);
 };
