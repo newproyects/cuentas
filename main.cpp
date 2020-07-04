@@ -7,8 +7,7 @@ int main(){
 
   us.id();
 
-  cout << us.iddir("carpetam","0",x.t[0]) << endl;
-  cout << x.t[0] << endl;
+  us.del();
   
   return 0;
 }
