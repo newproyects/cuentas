@@ -472,3 +472,21 @@ bool User::vdir(const char *a,Table &c){
   if(mc.outtable(c)) return 1;
   return 0;
 }
+
+bool User::vall(char *a,Table &c){
+  x.reset(2,strlen(a));
+  strcpy(x.t[0],d.t[2]);
+  strcpy(x.t[1],a);
+  if(mc.queryd("select name_arch from arch where id_user='%s' and id_dir='%s'",x,2)) return 1;
+  if(mc.outtable(c)) return 1;
+  return 0;
+}
+
+bool User::vall(const char *a,Table &c){
+  x.reset(2,strlen(a));
+  strcpy(x.t[0],d.t[2]);
+  strcpy(x.t[1],a);
+  if(mc.queryd("select name_arch from arch where id_user='%s' and id_dir='%s'",x,2)) return 1;
+  if(mc.outtable(c)) return 1;
+  return 0;
+}

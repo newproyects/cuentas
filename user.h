@@ -53,4 +53,6 @@ public:
   bool varch(const char *a,Table &c);
   bool vdir(char *a,Table &c);
   bool vdir(const char *a,Table &c);
+  bool vall(char *a,Table &c);
+  bool vall(const char *a,Table &c);
 };

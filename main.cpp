@@ -7,7 +7,7 @@ int main(){
 
   us.id();
 
-  us.vdir("331",x);
+  us.vall("334",x);
   for(int i=0;i<x.y;i++) cout << x.t[i] << endl;
   
   return 0;
