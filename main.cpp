@@ -7,7 +7,7 @@ int main(){
 
   us.id();
 
-  cout << us.iddoc("main.cpp","177",x.t[0]) << endl;
+  cout << us.idarch("carpetam","0",x.t[0]) << endl;
   cout << x.t[0] << endl;
   
   return 0;
