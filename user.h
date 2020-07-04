@@ -49,4 +49,6 @@ public:
   bool copdir(const char *a,const char *b,const char *c);
   bool copall(char *a,char *b);
   bool copall(const char *a,const char *b);
+  bool varch(char *a,Table &c);
+  bool varch(const char *a,Table &c);
 };

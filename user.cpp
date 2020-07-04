@@ -436,3 +436,21 @@ bool User::copall(const char *a,const char *b){
   if(!(strcmp(w.t[0],"\0")==0)) for(int i=0;i<w.y;i++) copdir(w.t[i],o.t[2],o.t[0]);
   return 0;
 }
+
+bool User::varch(char *a,Table &c){
+  x.reset(2,strlen(a));
+  strcpy(x.t[0],d.t[2]);
+  strcpy(x.t[1],a);
+  if(mc.queryd("select name_arch from arch where id_user='%s' and id_dir='%s' and not(data='0-dir-0')",x,2)) return 1;
+  if(mc.outtable(c)) return 1;
+  return 0;
+}
+
+bool User::varch(const char *a,Table &c){
+  x.reset(2,strlen(a));
+  strcpy(x.t[0],d.t[2]);
+  strcpy(x.t[1],a);
+  if(mc.queryd("select name_arch from arch where id_user='%s' and id_dir='%s' and not(data='0-dir-0')",x,2)) return 1;
+  if(mc.outtable(c)) return 1;
+  return 0;
+}
