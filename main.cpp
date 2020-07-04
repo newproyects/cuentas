@@ -9,6 +9,11 @@ int main(){
 
   us.vuser(x);
   for(int i=0;i<x.y;i++) cout << x.t[i] << endl;
+
+  us.rename("juancho");
+
+  us.vuser(x);
+  for(int i=0;i<x.y;i++) cout << x.t[i] << endl;
   
   return 0;
 }

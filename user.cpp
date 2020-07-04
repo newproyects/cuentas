@@ -71,6 +71,22 @@ bool User::id(){
   return 0;
 }
 
+bool User::rename(char *a){
+  x.reset(2,strlen(a));
+  strcpy(x.t[0],a);
+  strcpy(x.t[1],d.t[2]);
+  if(mc.queryd("update user set name='%s' where id='%s' and not(id=0)",x,2)) return 1;
+  return 0;
+}
+
+bool User::rename(const char *a){
+  x.reset(2,strlen(a));
+  strcpy(x.t[0],a);
+  strcpy(x.t[1],d.t[2]);
+  if(mc.queryd("update user set name='%s' where id='%s' and not(id=0)",x,2)) return 1;
+  return 0;
+}
+
 bool User::setact(bool b){
   x.reset(1,10);
   strcpy(x.t[0],d.t[2]);
