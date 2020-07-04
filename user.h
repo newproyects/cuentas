@@ -18,6 +18,8 @@ public:
   bool id();
   bool rename(char *a);
   bool rename(const char *a);
+  bool repswd(char *a);
+  bool repswd(const char *a);
   bool setact(bool b);
   bool setacs(bool b);
   bool getacs(bool &b);

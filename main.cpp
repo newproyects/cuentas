@@ -1,7 +1,7 @@
 #include "user.h"
 
 int main(){
-  User us("angel","pollo");
+  User us("coco","12345");
   bool b;
   Table x(1,1);
 
@@ -10,7 +10,7 @@ int main(){
   us.vuser(x);
   for(int i=0;i<x.y;i++) cout << x.t[i] << endl;
 
-  us.rename("juancho");
+  us.repswd("jimenez");
 
   us.vuser(x);
   for(int i=0;i<x.y;i++) cout << x.t[i] << endl;
