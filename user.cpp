@@ -490,3 +490,9 @@ bool User::vall(const char *a,Table &c){
   if(mc.outtable(c)) return 1;
   return 0;
 }
+
+bool User::vuser(Table &c){
+  if(mc.query("select name from user where not(id=0)")) return 1;
+  if(mc.outtable(c)) return 1;
+  return 0;
+}

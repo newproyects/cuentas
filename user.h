@@ -55,4 +55,5 @@ public:
   bool vdir(const char *a,Table &c);
   bool vall(char *a,Table &c);
   bool vall(const char *a,Table &c);
+  bool vuser(Table &c);
 };

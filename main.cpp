@@ -7,7 +7,7 @@ int main(){
 
   us.id();
 
-  us.vall("334",x);
+  us.vuser(x);
   for(int i=0;i<x.y;i++) cout << x.t[i] << endl;
   
   return 0;
