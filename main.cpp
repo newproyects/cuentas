@@ -7,7 +7,7 @@ int main(){
 
   us.id();
 
-  cout << us.idarch("carpetam","0",x.t[0]) << endl;
+  cout << us.iddir("carpetam","0",x.t[0]) << endl;
   cout << x.t[0] << endl;
   
   return 0;
