@@ -7,8 +7,8 @@ int main(){
 
   us.id();
 
-  //us.copdir("177","0","192");
-  us.copall("177","192");
+  cout << us.iddoc("main.cpp","177",x.t[0]) << endl;
+  cout << x.t[0] << endl;
   
   return 0;
 }
