@@ -51,4 +51,6 @@ public:
   bool copall(const char *a,const char *b);
   bool varch(char *a,Table &c);
   bool varch(const char *a,Table &c);
+  bool vdir(char *a,Table &c);
+  bool vdir(const char *a,Table &c);
 };

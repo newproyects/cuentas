@@ -7,7 +7,7 @@ int main(){
 
   us.id();
 
-  us.varch("330",x);
+  us.vdir("331",x);
   for(int i=0;i<x.y;i++) cout << x.t[i] << endl;
   
   return 0;
