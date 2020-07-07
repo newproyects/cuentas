@@ -115,6 +115,21 @@ bool User::setact(bool b){
   return 0;
 }
 
+bool User::getact(bool &b){
+  x.reset(2,10);
+  b=0;
+  if(mc.query("select name from user where active=1")) return 1;
+  if(mc.outpoint(x.t[0])) return 1;
+  if(strcmp(x.t[0],"\0")==0) return 0;
+  if(mc.query("select pswd from user where active=1")) return 1;
+  if(mc.outpoint(x.t[1])) return 1;
+  if(strcmp(x.t[0],"\0")==0) return 0;
+  strcpy(d.t[0],x.t[0]);
+  strcpy(d.t[1],x.t[1]);
+  b=1;
+  return 0;
+}
+
 bool User::setacs(bool b){
   x.reset(1,10);
   strcpy(x.t[0],d.t[2]);

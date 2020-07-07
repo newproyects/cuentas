@@ -1,19 +1,20 @@
 #include "user.h"
 
 int main(){
-  User us("coco","12345");
-  bool b;
+  //User us("angel","pollo");
+  User us;
+  bool b=0;
   Table x(1,1);
+  
+  cout << us.getact(b) << endl;
 
+  cout << b << endl;
   us.id();
 
-  us.vuser(x);
-  for(int i=0;i<x.y;i++) cout << x.t[i] << endl;
+  us.varch("0",x);
 
-  us.repswd("jimenez");
-
-  us.vuser(x);
   for(int i=0;i<x.y;i++) cout << x.t[i] << endl;
+  
   
   return 0;
 }

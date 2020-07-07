@@ -21,6 +21,7 @@ public:
   bool repswd(char *a);
   bool repswd(const char *a);
   bool setact(bool b);
+  bool getact(bool &b);
   bool setacs(bool b);
   bool getacs(bool &b);
   bool checkdoc(char *a,char *b);
