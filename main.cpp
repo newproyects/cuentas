@@ -1,20 +1,13 @@
 #include "user.h"
 
 int main(){
-  //User us("angel","pollo");
-  User us;
-  bool b=0;
+  User us("angel","pollo");
   Table x(1,1);
-  
-  cout << us.getact(b) << endl;
 
-  cout << b << endl;
   us.id();
-
-  us.varch("0",x);
-
-  for(int i=0;i<x.y;i++) cout << x.t[i] << endl;
   
+  cout << us.outarch("Makefile","330",x) << endl;
+  cout << x.t[0] << endl;
   
   return 0;
 }
