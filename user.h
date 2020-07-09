@@ -38,6 +38,8 @@ public:
   bool inarch(const char *a,const char *b,char *c);
   bool outarch(char *a,char *b,Table &c);
   bool outarch(const char *a,const char *b,Table &c);
+  bool outarch(char *a,char *b,Table &c,unsigned long* &i);
+  bool outarch(const char *a,const char *b,Table &c,unsigned long* &i);
   bool indir(char *a,char *b);
   bool indir(const char *a,const char *b);
   bool delarch(char *a,char *b);

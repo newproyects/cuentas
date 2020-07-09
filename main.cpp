@@ -3,10 +3,12 @@
 int main(){
   User us("angel","pollo");
   Table x(1,1);
+  unsigned long* i;
 
   us.id();
   
-  cout << us.outarch("Makefile","330",x) << endl;
+  cout << us.outarch("Makefile","330",x,i) << endl;
+  cout << i << endl;
   cout << x.t[0] << endl;
   
   return 0;

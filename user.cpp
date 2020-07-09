@@ -314,6 +314,26 @@ bool User::outarch(const char *a,const char *b,Table &c){
   return 0;
 }
 
+bool User::outarch(char *a,char *b,Table &c,unsigned long* &i){
+  x.reset(3,strlen(a)*5);
+  strcpy(x.t[0],d.t[2]);
+  strcpy(x.t[1],a);
+  strcpy(x.t[2],b);
+  if(mc.queryd("select data from arch where id_user='%s' and name_arch='%s' and id_dir='%s'",x,3)) return 1;
+  if(mc.outdata(c,i)) return 1;
+  return 0;
+}
+
+bool User::outarch(const char *a,const char *b,Table &c,unsigned long* &i){
+  x.reset(3,strlen(a)*5);
+  strcpy(x.t[0],d.t[2]);
+  strcpy(x.t[1],a);
+  strcpy(x.t[2],b);
+  if(mc.queryd("select data from arch where id_user='%s' and name_arch='%s' and id_dir='%s'",x,3)) return 1;
+  if(mc.outdata(c,i)) return 1;
+  return 0;
+}
+
 bool User::delarch(char *a,char *b){
   x.reset(3,strlen(a)*5);
   strcpy(x.t[0],d.t[2]);
