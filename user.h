@@ -34,8 +34,7 @@ public:
   bool iddir(const char *a,const char *b,char* &c);
   bool renamedoc(char *a,char *b,char *c);
   bool renamedoc(const char *a,const char *b,const char *c);
-  bool inarch(char *a,char *b,char *c);
-  bool inarch(const char *a,const char *b,char *c);
+  bool inarch(Table &c,int s);
   bool outarch(char *a,char *b,Table &c);
   bool outarch(const char *a,const char *b,Table &c);
   bool outarch(char *a,char *b,Table &c,unsigned long* &i);

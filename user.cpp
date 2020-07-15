@@ -256,23 +256,9 @@ bool User::renamedoc(const char *a,const char *b,const char *c){
   return 0;
 }
 
-bool User::inarch(char *a,char *b,char *c){
-  x.reset(4,strlen(c));
-  strcpy(x.t[0],d.t[2]);
-  strcpy(x.t[1],a);
-  strcpy(x.t[2],b);
-  strcpy(x.t[3],c);
-  if(mc.indata("insert into arch(id_user,name_arch,id_dir,data) values('%s','%s','%s','%s')",x,4)) return 1;
-  return 0;
-}
-
-bool User::inarch(const char *a,const char *b,char *c){
-  x.reset(4,strlen(c));
-  strcpy(x.t[0],d.t[2]);
-  strcpy(x.t[1],a);
-  strcpy(x.t[2],b);
-  strcpy(x.t[3],c);
-  if(mc.indata("insert into arch(id_user,name_arch,id_dir,data) values('%s','%s','%s','%s')",x,4)) return 1;
+bool User::inarch(Table &c,int s){
+  strcpy(c.t[0],d.t[2]);
+  if(mc.indata("insert into arch(id_user,name_arch,id_dir,data) values('%s','%s','%s','%s')",c,4,s)) return 1;
   return 0;
 }
 
