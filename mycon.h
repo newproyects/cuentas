@@ -27,8 +27,8 @@ public:
   bool queryd(const char *q,Table &d,int i);
   bool outpoint(char *q);
   bool outtable(Table &d);
-  bool indata(char *q,Table &d,int i);
-  bool indata(const char *q,Table &d,int i);
+  bool indata(char *q,Table &d,int i,int s);
+  bool indata(const char *q,Table &d,int i,int s);
   bool outdata(Table &d);
   bool outdata(Table &d,unsigned long* &i);
 };
