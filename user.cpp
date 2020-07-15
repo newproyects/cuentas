@@ -339,7 +339,7 @@ bool User::delarch(char *a,char *b){
   strcpy(x.t[0],d.t[2]);
   strcpy(x.t[1],a);
   strcpy(x.t[2],b);
-  if(mc.indata("delete from arch where id_user='%s' and name_arch='%s' and id_dir='%s'",x,3)) return 1;
+  if(mc.queryd("delete from arch where id_user='%s' and name_arch='%s' and id_dir='%s'",x,3)) return 1;
   return 0;
 }
 
@@ -348,7 +348,7 @@ bool User::delarch(const char *a,const char *b){
   strcpy(x.t[0],d.t[2]);
   strcpy(x.t[1],a);
   strcpy(x.t[2],b);
-  if(mc.indata("delete from arch where id_user='%s' and name_arch='%s' and id_dir='%s'",x,3)) return 1;
+  if(mc.queryd("delete from arch where id_user='%s' and name_arch='%s' and id_dir='%s'",x,3)) return 1;
   return 0;
 }
 
